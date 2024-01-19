@@ -10,6 +10,13 @@ const App = () => {
     bad: 0,
   });
 
+  const onLeaveFeedback = (option) => {
+    setClicks({
+      ...clicks,
+      [option]: clicks[option] + 1,
+    });
+  };
+
   return (
     <>
       <Description>
@@ -20,8 +27,8 @@ const App = () => {
         </p>
       </Description>
 
-      <Options />
-      <Feedback />
+      <Options value={clicks} onUpdate={onLeaveFeedback} />
+      <Feedback value={clicks} onUpdate={onLeaveFeedback} />
     </>
   );
 };
