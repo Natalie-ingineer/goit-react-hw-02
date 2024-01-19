@@ -4,12 +4,11 @@ import { Options } from "../components/Options/Options";
 import { Feedback } from "../components/Feedback/Feedback";
 
 const App = () => {
-  const [clicks, setClicks] = useState(0);
-
-  const handleClick = () => {
-    // clicks = clicks + 1;
-    setClicks(clicks + 1);
-  };
+  const [clicks, setClicks] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
   return (
     <>
@@ -20,7 +19,7 @@ const App = () => {
           options below.
         </p>
       </Description>
-      <button onClick={handleClick}>Current: {clicks}</button>;
+
       <Options />
       <Feedback />
     </>

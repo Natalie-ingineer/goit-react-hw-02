@@ -5,23 +5,23 @@ const Options = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const handleClickGood = () => {
-    setGood(good + 1);
-  };
+  //   const handleClickGood = () => {
+  //     setGood(good + 1);
+  //   };
 
-  const handleClickNeutral = () => {
-    setNeutral(neutral + 1);
-  };
+  //   const handleClickNeutral = () => {
+  //     setNeutral(neutral + 1);
+  //   };
 
-  const handleClickBad = () => {
-    setBad(bad + 1);
-  };
+  //   const handleClickBad = () => {
+  //     setBad(bad + 1);
+  //   };
 
   return (
     <div>
-      <button onClick={handleClickGood}>good: {good}</button>;
-      <button onClick={handleClickNeutral}>neutral: {neutral}</button>;
-      <button onClick={handleClickBad}>bad: {bad}</button>;
+      <button>Good</button>
+      <button>Neutral</button>
+      <button>Bad</button>
     </div>
   );
 };
