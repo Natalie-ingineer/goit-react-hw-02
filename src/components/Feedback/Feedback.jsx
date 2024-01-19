@@ -1,4 +1,4 @@
-export const Feedback = ({ value, onUpdate }) => {
+export const Feedback = ({ value, onUpdate, onReset }) => {
   return (
     <div>
       <p onClick={() => onUpdate} name="good">
@@ -10,6 +10,7 @@ export const Feedback = ({ value, onUpdate }) => {
       <p onClick={() => onUpdate} name="bad">
         Bad: {value.bad}
       </p>
+      {<p onClick={onReset}></p>}
     </div>
   );
 };

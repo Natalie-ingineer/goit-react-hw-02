@@ -17,6 +17,15 @@ const App = () => {
     });
   };
 
+  const isHidden = clicks < clicks.length - 1;
+
+  const onReset = (option) => {
+    setClicks({
+      ...clicks,
+      [option]: clicks[option] === 0,
+    });
+  };
+
   return (
     <>
       <Description>
@@ -27,7 +36,7 @@ const App = () => {
         </p>
       </Description>
 
-      <Options value={clicks} onUpdate={onLeaveFeedback} />
+      <Options value={clicks} onUpdate={onLeaveFeedback} disabled={isHidden} />
       <Feedback value={clicks} onUpdate={onLeaveFeedback} />
     </>
   );
