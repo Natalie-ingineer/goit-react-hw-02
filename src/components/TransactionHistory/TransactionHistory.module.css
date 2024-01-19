@@ -1,0 +1,36 @@
+th {
+  background: #afd792; /* Колір фону */
+  color: #333; /* Колір тексту */
+}
+tbody tr:hover {
+  background: #f3bd48; /* Колір фону при наведенні */
+  color: #fff; /* Колір тексту при наведенні */
+}
+
+.transaction-history {
+  border-collapse: collapse;
+  border: 4px double black;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.caption {
+  border: 4px double black;
+  background-color: yellow;
+}
+
+td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.info {
+  margin: 15px;
+  font-size: 20px;
+  display: block;
+}
+
+.bodyTable {
+  /* display: flex; */
+}
