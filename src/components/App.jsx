@@ -1,38 +1,21 @@
-import { useState } from "react";
 import { Description } from "../components/Description/Description";
-
-const Options = () => {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-  return <button onClick={handleClick}>Total click - {count}</button>;
-};
-// let value = {
-//   good: 0,
-//   neutral: 0,
-//   bad: 0,
-// };
+import { Options } from "../components/Options/Options";
+import { Feedback } from "../components/Feedback/Feedback";
 
 const App = () => {
   return (
     <>
       <Description>
-        <h1>Cafe</h1>
-        <p>Text</p>
+        <h1>Sip Happens Café</h1>
+        <p>
+          Please leave your feedback about our service by selecting one of the
+          options below.
+        </p>
       </Description>
-      <>
-        <Options />
-        <Options />
-        <Options />
-      </>
+      <Options />
+      <Feedback />
     </>
   );
 };
 
 export { App };
-
-{
-  /*  */
-}
