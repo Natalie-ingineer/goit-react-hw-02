@@ -17,12 +17,7 @@ const App = () => {
     });
   };
 
-  // console.log(clicks.good);
-  // console.log(clicks.neutral);
-  // console.log(clicks.bad);
-  let totalFeedback = 0;
-  totalFeedback += clicks.good + clicks.neutral + clicks.bad;
-  console.log(totalFeedback);
+  let totalFeedback = clicks.good + clicks.neutral + clicks.bad;
 
   let isVisible = totalFeedback > 0;
 

@@ -1,5 +1,4 @@
 export const Feedback = ({ value, onUpdate, onTotal }) => {
-  // let totalFeedback = 0;
   let totalFeedback = value.good + value.neutral + value.bad;
   let positiveFeedback = Math.round(
     ((value.good + value.neutral) / totalFeedback) * 100
