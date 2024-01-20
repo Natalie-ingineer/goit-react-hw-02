@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Description } from "../components/Description/Description";
 import { Options } from "../components/Options/Options";
 import { Feedback } from "../components/Feedback/Feedback";
+import { Notification } from "../components/Notification/Notification";
 
 const App = () => {
   const [clicks, setClicks] = useState({
@@ -18,6 +19,9 @@ const App = () => {
   };
 
   let totalFeedback = clicks.good + clicks.neutral + clicks.bad;
+  let positiveFeedback = Math.round(
+    ((clicks.good + clicks.neutral) / totalFeedback) * 100
+  );
 
   let isVisible = totalFeedback > 0;
 
@@ -46,9 +50,12 @@ const App = () => {
           value={clicks}
           onUpdate={onLeaveFeedback}
           onTotal={totalFeedback}
+          positiveFeedback={positiveFeedback}
         />
       ) : (
-        "No feedback yet"
+        <Notification>
+          <p>No feedback yet</p>
+        </Notification>
       )}
     </>
   );
