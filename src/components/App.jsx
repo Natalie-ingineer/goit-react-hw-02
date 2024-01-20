@@ -20,11 +20,11 @@ const App = () => {
   // console.log(clicks.good);
   // console.log(clicks.neutral);
   // console.log(clicks.bad);
-  let totalFeedback = 1;
+  let totalFeedback = 0;
   totalFeedback += clicks.good + clicks.neutral + clicks.bad;
   console.log(totalFeedback);
 
-  let isVisible = totalFeedback > 1;
+  let isVisible = totalFeedback > 0;
 
   const onReset = (option) => {
     setClicks({ good: 0, neutral: 0, bad: 0 });
@@ -46,8 +46,12 @@ const App = () => {
         onReset={onReset}
         disabled={isVisible}
       />
-      {totalFeedback > 1 ? (
-        <Feedback value={clicks} onUpdate={onLeaveFeedback} />
+      {totalFeedback > 0 ? (
+        <Feedback
+          value={clicks}
+          onUpdate={onLeaveFeedback}
+          onTotal={totalFeedback}
+        />
       ) : (
         "No feedback yet"
       )}
