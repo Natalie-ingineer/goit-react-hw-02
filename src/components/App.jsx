@@ -17,14 +17,27 @@ const App = () => {
     });
   };
 
+  // console.log(clicks.good);
+  // console.log(clicks.neutral);
+  // console.log(clicks.bad);
+  let totalFeedback = 1;
+  totalFeedback += clicks.good + clicks.neutral + clicks.bad;
+  console.log(totalFeedback);
+
   const isHidden = clicks < clicks.length - 1;
 
-  const onReset = (option) => {
-    setClicks({
-      ...clicks,
-      [option]: clicks[option] === 0,
-    });
-  };
+  // const onReset = (option) => {
+  //   setClicks({
+  //     [option]: clicks[option] === 0,
+  //   });
+  // };
+
+  // const counterFeedback = () => {
+  //   totalFeedback += 1;
+  //   console.log(totalFeedback);
+  // };
+  //   counterFeedback(option)
+  // "good" + "neutral" + "bad";
 
   return (
     <>
@@ -37,7 +50,11 @@ const App = () => {
       </Description>
 
       <Options value={clicks} onUpdate={onLeaveFeedback} disabled={isHidden} />
-      <Feedback value={clicks} onUpdate={onLeaveFeedback} />
+      {totalFeedback > 1 ? (
+        <Feedback value={clicks} onUpdate={onLeaveFeedback} />
+      ) : (
+        "No feedback yet"
+      )}
     </>
   );
 };
