@@ -24,20 +24,11 @@ const App = () => {
   totalFeedback += clicks.good + clicks.neutral + clicks.bad;
   console.log(totalFeedback);
 
-  const isHidden = clicks < clicks.length - 1;
+  let isVisible = totalFeedback > 1;
 
-  // const onReset = (option) => {
-  //   setClicks({
-  //     [option]: clicks[option] === 0,
-  //   });
-  // };
-
-  // const counterFeedback = () => {
-  //   totalFeedback += 1;
-  //   console.log(totalFeedback);
-  // };
-  //   counterFeedback(option)
-  // "good" + "neutral" + "bad";
+  const onReset = (option) => {
+    setClicks({ good: 0, neutral: 0, bad: 0 });
+  };
 
   return (
     <>
@@ -49,7 +40,12 @@ const App = () => {
         </p>
       </Description>
 
-      <Options value={clicks} onUpdate={onLeaveFeedback} disabled={isHidden} />
+      <Options
+        value={clicks}
+        onUpdate={onLeaveFeedback}
+        onReset={onReset}
+        disabled={isVisible}
+      />
       {totalFeedback > 1 ? (
         <Feedback value={clicks} onUpdate={onLeaveFeedback} />
       ) : (

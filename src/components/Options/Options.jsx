@@ -1,4 +1,4 @@
-export const Options = ({ onUpdate, isHidden, onReset }) => {
+export const Options = ({ onUpdate, disabled, onReset }) => {
   return (
     <div>
       <button onClick={() => onUpdate("good")} name="good">
@@ -10,7 +10,7 @@ export const Options = ({ onUpdate, isHidden, onReset }) => {
       <button onClick={() => onUpdate("bad")} name="bad">
         Bad
       </button>
-      {!isHidden && <button onClick={onReset}>Reset</button>}
+      {disabled && <button onClick={onReset}>Reset</button>}
     </div>
   );
 };
