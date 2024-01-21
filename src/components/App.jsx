@@ -20,7 +20,10 @@ const App = () => {
   });
 
   useEffect(() => {
-    window.localStorage.setItem("number-of-clicks", JSON.stringify([clicks]));
+    window.localStorage.setItem(
+      "number-of-clicks",
+      JSON.stringify({ ...clicks })
+    );
   }, [clicks]);
 
   const onLeaveFeedback = (option) => {
