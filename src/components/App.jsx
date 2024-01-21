@@ -7,14 +7,16 @@ import { Notification } from "../components/Notification/Notification";
 const App = () => {
   const [clicks, setClicks] = useState(() => {
     const savedClicks = window.localStorage.getItem("number-of-clicks");
-    if (savedClicks === null) {
-      return {
-        good: 0,
-        neutral: 0,
-        bad: 0,
-      };
+
+    if (savedClicks !== null) {
+      return JSON.parse(savedClicks);
     }
-    return JSON.parse(savedClicks);
+
+    return {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
   });
 
   useEffect(() => {
