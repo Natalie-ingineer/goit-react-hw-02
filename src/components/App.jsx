@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Description } from "../components/Description/Description";
 import { Options } from "../components/Options/Options";
 import { Feedback } from "../components/Feedback/Feedback";
 import { Notification } from "../components/Notification/Notification";
 
 const App = () => {
-  const [clicks, setClicks] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [clicks, setClicks] = useState(() => {
+    const savedClicks = window.localStorage.getItem("number-of-clicks");
+    if (savedClicks !== null) {
+      return JSON.parse(savedClicks);
+    }
+
+    return {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
   });
+
+  useEffect(() => {
+    window.localStorage.setItem("number-of-clicks", JSON.stringify([clicks]));
+  }, [clicks]);
 
   const onLeaveFeedback = (option) => {
     setClicks({
