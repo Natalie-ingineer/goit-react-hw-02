@@ -32,8 +32,8 @@ const App = () => {
   return (
     <>
       <Description>
-        <h1>Sip Happens Café</h1>
-        <p>
+        <h1 className="caption">Sip Happens Café</h1>
+        <p className="text-description">
           Please leave your feedback about our service by selecting one of the
           options below.
         </p>
@@ -54,7 +54,7 @@ const App = () => {
         />
       ) : (
         <Notification>
-          <p>No feedback yet</p>
+          <p className="notification">No feedback yet</p>
         </Notification>
       )}
     </>

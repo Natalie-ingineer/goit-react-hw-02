@@ -1,16 +1,30 @@
+import css from "../Options/Options.module.css";
+
 export const Options = ({ onUpdate, disabled, onReset }) => {
   return (
     <div>
-      <button onClick={() => onUpdate("good")} name="good">
+      <button
+        className={css.button}
+        onClick={() => onUpdate("good")}
+        name="good"
+      >
         Good
       </button>
-      <button onClick={() => onUpdate("neutral")} name="neutral">
+      <button
+        className={css.button}
+        onClick={() => onUpdate("neutral")}
+        name="neutral"
+      >
         Neutral
       </button>
-      <button onClick={() => onUpdate("bad")} name="bad">
+      <button className={css.button} onClick={() => onUpdate("bad")} name="bad">
         Bad
       </button>
-      {disabled && <button onClick={onReset}>Reset</button>}
+      {disabled && (
+        <button className={css.button} onClick={onReset}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };
